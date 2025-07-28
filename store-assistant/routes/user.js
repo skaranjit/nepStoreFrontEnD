@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const userController = require('../controllers/userController');
 
-// Placeholder for user routes
-router.get('/', (req, res) => {
-  res.send('User routes');
-});
+// Register a new user
+router.post('/register', userController.register);
+
+// Login a user
+router.post('/login', userController.login);
 
 module.exports = router;
