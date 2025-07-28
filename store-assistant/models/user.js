@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
     enum: ['customer', 'store-owner', 'driver'],
     default: 'customer',
   },
+  stores: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Store',
+  }],
 }, {
   timestamps: true,
 });
