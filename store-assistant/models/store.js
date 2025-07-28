@@ -23,6 +23,11 @@ const storeSchema = new mongoose.Schema({
   timestamps: true,
 });
 
+storeSchema.pre('remove', async function (next) {
+  await this.model('Product').deleteMany({ store: this._id });
+  next();
+});
+
 const Store = mongoose.model('Store', storeSchema);
 
 module.exports = Store;
